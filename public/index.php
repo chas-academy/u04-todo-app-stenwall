@@ -1,3 +1,8 @@
+<?php
+namespace App;
+
+use App\Domain\Todo;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +15,17 @@
 <body>
 
 	<h1>Todos!</h1>
+
+<?php
+
+$todo1 = new Todo (1, 1, 1, "diska", "all disk", 0);
+var_dump($todo1);
+
+$pdo = connectDB();
+
+var_dump($pdo);
+
+?>
 
 	<!-- Form for adding list -->
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="list-form">
