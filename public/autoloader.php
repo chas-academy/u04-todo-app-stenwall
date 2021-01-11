@@ -1,8 +1,4 @@
 <?php
-namespace App;
-
-use App\Domain\Todo;
-use App\Domain\TodoList;
 
 function autoloader($namespace)
 {
