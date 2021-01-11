@@ -51,7 +51,7 @@ function oops(array $errormessages)
 {
 	echo "<h1>Oops, something went wrong!</h1>";
 		foreach ($errormessages as $message) {
-			echo "<p>{$message}</p";
+			echo "<p>{$message}</p>";
 		}
 	echo "<a href='index.php' class='button'>Go back</a>";
 }
