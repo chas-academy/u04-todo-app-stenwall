@@ -27,8 +27,7 @@ h1 {
     column-gap: 2rem;
     row-gap: 1.5rem;
     grid-template-areas: "h2 h2"
-        ". ."
-        ". ."
+		". ."
         ". .";
     background: lighten($primary-bg-color, 5%);
     padding: 2rem;
@@ -80,7 +79,8 @@ h1 {
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     grid-template-areas: "h2"
-        ".";
+		"."
+		".";
     max-width: 450px;
 
     & button {
