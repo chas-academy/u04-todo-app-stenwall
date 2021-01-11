@@ -25,12 +25,12 @@ function addNewTodo()
 	<form action="addtodo.php" method="POST" id="todo-form">
 		<div class="grid-container">
 			<h2>Add new todo</h2>
-			<div class="list">
+			<!-- <div class="list">
 				<label for="list">Choose a list</label>
 				<select id="list" name="list" form="todo-form">
 					<option value="">--Choose a list--</option>
 				</select>
-			</div>
+			</div> -->
 			<div class="title">
 				<label for="todo-title">Title</label>
 				<input type="text" id="todo-title" name="todo-title">
@@ -62,6 +62,16 @@ function showListCreated(string $title)
 	echo "<h1>Congrats!</h1>";
 	echo "<p>You've just created the list <b>{$title}</b></p>";
 	echo "<a href='index.php' class='button'>Go back</a>";
+}
+
+// function for view after succesfully adding a new todo
+function showTodoCreated(string $title, string $description)
+{
+	echo "<h1>Congrats!</h1>
+		<p>You've just created the following todo:</p>
+		<p><b>Title:</b> {$title}</p>
+		<p><b>Description:</b> {$description}</p>
+		<a href='index.php' class='button'>Go back</a>";
 }
 
 ?>
