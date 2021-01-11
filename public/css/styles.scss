@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+$primary-bg-color: #F7B1AB;
+$secondary-bg-color: #807182;
+$font-color: rgba(0, 0, 0, .8);
+$font-family: 'Montserrat',
+sans-serif;
+$form-border-color: rgba(0, 0, 0, .1);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+}
+
+body {
+    background: #D8AA96;
+}
+
+h1 {
+    margin: 2rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    grid-template-areas: "h2 h2"
+        ". ."
+        ". ."
+        ". .";
+    background: lighten($primary-bg-color, 5%);
+    padding: 2rem;
+    margin: 2rem;
+    max-width: 700px;
+
+    h2 {
+        grid-area: h2;
+        color: $font-color;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    & input {
+        border: 1px solid $form-border-color;
+        border-radius: 4px;
+        height: 2rem;
+        line-height: 2rem;
+        padding-left: 0.3rem;
+    }
+
+    & input,
+    label {
+        color: $font-color;
+        width: 100%;
+    }
+
+    & button {
+        margin-top: 1.3rem;
+        height: 2.5rem;
+        line-height: 2rem;
+        width: 100%;
+        border-radius: 19px;
+        font-family: $font-family;
+        background: $secondary-bg-color;
+        border: 1px solid transparent;
+        color: #fff;
+        transition: .2s all ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: #171A2B;
+            cursor: pointer;
+        }
+    }
+}
+
+.grid-container#list-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    grid-template-areas: "h2"
+		".";
+	& button {
+		margin-top: 0;
+	}	
+}
+
+.title,
+.author,
+.pages,
+.isbn,
+.available {
+
+    & label,
+    p {
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.radio-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    border: 1px solid $form-border-color;
+    border-radius: 4px;
+    padding: 0.3rem;
+
+    & label {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        transition: .2s all ease-in-out;
+        width: 50% !important;
+        cursor: pointer;
+
+        &:hover {
+            border: 2px solid $primary-bg-color;
+            cursor: pointer;
+        }
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="radio"]:checked+label {
+        background: $primary-bg-color;
+        border: 1px solid $form-border-color;
+    }
+}
+
+.message-container {
+    background: lighten($primary-bg-color, 5%);
+    padding: 2rem;
+    margin: 2rem;
+    max-width: 700px;
+
+    h1 {
+        margin: 0 0 2rem 0;
+    }
+
+    a.button {
+        text-decoration: none;
+        padding: 0.6rem 2.2rem;
+        height: 2.5rem;
+        line-height: 2rem;
+        border-radius: 19px;
+        font-family: $font-family;
+        background: $secondary-bg-color;
+        border: 1px solid transparent;
+        color: #fff;
+        transition: .2s all ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: #171A2B;
+            cursor: pointer;
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    p,
+    li {
+        padding: 0.5rem;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 2px;
+
+    }
+
+    p:last-of-type,
+    li:last-of-type {
+        margin-bottom: 2rem;
+    }
+}
