@@ -1,17 +1,19 @@
 <?php
 declare(strict_types=1);
+namespace App\controllers;
 include (__DIR__ . '/../models/todolist.php');
-include (__DIR__ . '/../views/view_functions.php');
+include (__DIR__ . '/../views/views_functions.php');
+use App\views;
 
 function handleCreateList() {
 		
 	$errors = checkForm();
 	if (!empty($errors)) {
-		oops($errors);
+		views\oops($errors);
 	} else {
 		$listTitle = $_POST['list-title'];
-		$newList = createList($listTitle);
-		showListCreated($newList);
+		createList($listTitle);
+		views\showListCreated($listTitle);
 	}
 }
 
