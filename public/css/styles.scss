@@ -80,10 +80,12 @@ h1 {
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     grid-template-areas: "h2"
-		".";
-	& button {
-		margin-top: 0;
-	}	
+        ".";
+    max-width: 450px;
+
+    & button {
+        margin-top: 0;
+    }
 }
 
 .title,
