@@ -53,7 +53,7 @@ function oops(array $errormessages)
 		foreach ($errormessages as $message) {
 			echo "<p>{$message}</p";
 		}
-	echo "<a href='bookform.php' class='button'>Go back</a>";
+	echo "<a href='index.php' class='button'>Go back</a>";
 }
 
 // function for view after succesfully adding a new list
