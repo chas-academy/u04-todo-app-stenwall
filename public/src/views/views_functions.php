@@ -7,7 +7,7 @@ function addNewList()
 { ?>
 	<!-- Form for adding list -->
 	<form action="addlist.php" method="POST" id="list-form">
-		<div id="grid-container">
+		<div class="grid-container" id="list-grid">
 			<h2>Add new list</h2>
 			<div class="list-title">
 				<label for=" list-title">Title</label>
@@ -23,7 +23,7 @@ function addNewTodo()
 { ?>
 	<!-- Form for adding todo -->
 	<form action="addtodo.php" method="POST" id="todo-form">
-		<div id="grid-container">
+		<div class="grid-container">
 			<h2>Add new todo</h2>
 			<div class="list">
 				<label for="list">Choose a list</label>
