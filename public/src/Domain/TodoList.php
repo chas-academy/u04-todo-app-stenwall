@@ -11,10 +11,7 @@ class TodoList
 	private $modified;
 
 	public function __construct(
-        int $id,
-        int $userId,
-        string $title,
-
+		string $title	
     ) {
         $this->id = $id;
         $this->user_id = $userId;
@@ -22,6 +19,11 @@ class TodoList
 		$timezone = new \DateTimeZone("Europe/Stockholm");
 		$this->created = new \DateTime("now", $timezone);
 		$this->modified = new \DateTime("now", $timezone);
+	}
+	
+	public function getTitle(): string
+    {
+        return $this->title;
     }
 }
 
