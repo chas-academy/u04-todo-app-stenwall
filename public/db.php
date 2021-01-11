@@ -1,5 +1,4 @@
 <?php
-namespace App;
 
 function connectDB() 
 {
