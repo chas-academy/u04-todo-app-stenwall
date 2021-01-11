@@ -53,12 +53,15 @@ function oops(array $errormessages)
 		foreach ($errormessages as $message) {
 			echo "<p>{$message}</p";
 		}
+	echo "<a href='bookform.php' class='button'>Go back</a>";
 }
 
+// function for view after succesfully adding a new list
 function showListCreated(string $title)
 {
 	echo "<h1>Congrats!</h1>";
-	echo "<p>You've just created the list {$title}</p>";
+	echo "<p>You've just created the list <b>{$title}</b></p>";
+	echo "<a href='index.php' class='button'>Go back</a>";
 }
 
 ?>
