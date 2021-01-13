@@ -28,8 +28,8 @@ function addNewTodo()
 		<div class="grid-container">
 			<h2>Add new todo</h2>
 			<div class="list">
-				<label for="list">Choose a list</label>
-				<select id="list" name="list" form="todo-form">
+				<label for="list-id">Choose a list</label>
+				<select id="list-id" name="list-id" form="todo-form">
 					<option value="">--Choose a list--</option>
 					<?php showAvailableLists(models\getLists()); ?>
 				</select>
@@ -68,10 +68,11 @@ function showListCreated(string $title)
 }
 
 // function for view after succesfully adding a new todo
-function showTodoCreated(string $title, string $description)
+function showTodoCreated(string $listId, string $title, string $description)
 {
 	echo "<h1>Congrats!</h1>
 		<p>You've just created the following todo:</p>
+		<p><b>List:</b> {$listId}</p>
 		<p><b>Title:</b> {$title}</p>
 		<p><b>Description:</b> {$description}</p>
 		<a href='index.php' class='button'>Go back</a>";
