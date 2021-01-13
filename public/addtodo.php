@@ -1,6 +1,6 @@
 <?php
 include_once (__DIR__ . '/src/views/header.php');
-include (__DIR__ . '/src/controllers/todo.php');
+include_once (__DIR__ . '/src/controllers/todo.php');
 use App\controllers;
 
 ?>

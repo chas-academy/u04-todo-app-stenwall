@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 namespace App\controllers;
-include (__DIR__ . '/../models/todo.php');
-include (__DIR__ . '/../views/views_functions.php');
+include_once (__DIR__ . '/../models/todo.php');
+include_once (__DIR__ . '/../views/views_functions.php');
 use App\views;
 
 function handleCreateTodo() {
