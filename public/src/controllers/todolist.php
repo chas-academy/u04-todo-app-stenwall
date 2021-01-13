@@ -4,6 +4,7 @@ namespace App\controllers;
 include (__DIR__ . '/../models/todolist.php');
 include (__DIR__ . '/../views/views_functions.php');
 use App\views;
+use App\models;
 
 function handleCreateList() {
 		
@@ -12,7 +13,7 @@ function handleCreateList() {
 		views\oops($errors);
 	} else {
 		$listTitle = $_POST['list-title'];
-		createList($listTitle);
+		models\createList($listTitle);
 		views\showListCreated($listTitle);
 	}
 }
