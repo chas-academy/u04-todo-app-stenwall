@@ -32,7 +32,7 @@ h1 {
     background: lighten($primary-bg-color, 5%);
     padding: 2rem;
     margin: 2rem;
-    max-width: 700px;
+    max-width: 690px;
 
     h2 {
         grid-area: h2;
@@ -41,7 +41,8 @@ h1 {
         font-weight: 600;
     }
 
-    & input {
+	& input, 
+	select {
         border: 1px solid $form-border-color;
         border-radius: 4px;
         height: 2rem;
@@ -50,7 +51,8 @@ h1 {
     }
 
     & input,
-    label {
+	label, 
+	select {
         color: $font-color;
         width: 100%;
     }
@@ -81,7 +83,7 @@ h1 {
     grid-template-areas: "h2"
 		"."
 		".";
-    max-width: 450px;
+    max-width: 350px;
 
     & button {
         margin-top: 0;
