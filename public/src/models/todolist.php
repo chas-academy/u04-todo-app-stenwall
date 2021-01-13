@@ -20,9 +20,8 @@ function getLists()
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute();
 	$lists = $stmt->fetchAll();
-	foreach ($lists as $list) {
-		echo $list['title'] . '<br>';
-	}
+	return $lists;
+	
 // 	$lists = $pdo->query("SELECT id, title FROM lists;")->fetchAll();
 // 	var_dump($lists);
 // 	$query = <<<SQL
