@@ -141,8 +141,20 @@ h1 {
     }
 }
 
-#todo-board {
-    max-width: 350px;
+.todo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // max-width: 900px;
+
+    #todo-board {
+        max-width: 350px;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    & div:nth-child(3n+3) {
+        margin-right: 2rem !important;
+    }
 }
 
 .message-container {
@@ -184,7 +196,6 @@ h1 {
         background-color: #fff;
         border: 1px solid transparent;
         border-radius: 2px;
-
     }
 
     p:last-of-type,

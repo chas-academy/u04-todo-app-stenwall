@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\views;
 include_once (__DIR__ . '/../models/todolist.php');
+include_once (__DIR__ . '/../models/todo.php');
 use App\models;
 // this file contains all the functions for showing HTML (views)
 
@@ -86,9 +87,24 @@ function showAvailableLists(array $lists)
 	}
 }
 
-function viewListsAndTodos()
+function viewListsAndTodos(array $lists)
 {
-	echo "<div class='message-container' id='todo-board'>";
+	echo "<div class='todo-grid-container'>";
+
+	foreach ($lists as $list) {
+		echo "<div class='message-container' id='todo-board'>";
+		echo "<h2>{$list['title']}</h2>";
+
+		$todos = models\getTodosByListId($list['id']);
+		
+		foreach ($todos as $todo) {
+			echo "<p><b>{$todo['task_title']}</b></p>";
+			echo "<p>{$todo['task_desc']}</p>";
+		}
+
+		echo "</div>";
+	}
+
 	echo "</div>";
 }
 	
