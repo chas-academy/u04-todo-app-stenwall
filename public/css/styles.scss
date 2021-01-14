@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 $primary-bg-color: #F7B1AB;
 $secondary-bg-color: #807182;
+$darker-purple: #171A2B;
 $font-color: rgba(0, 0, 0, .8);
 $font-family: 'Montserrat',
 sans-serif;
@@ -19,6 +20,7 @@ body {
 
 h1 {
     margin: 2rem;
+    color: $darker-purple;
 }
 
 .grid-container {
@@ -36,7 +38,7 @@ h1 {
 
     h2 {
         grid-area: h2;
-        color: $font-color;
+        color: $darker-purple;
         font-size: 2rem;
         font-weight: 600;
     }
@@ -71,7 +73,7 @@ h1 {
         cursor: pointer;
 
         &:hover {
-            background: #171A2B;
+            background: $darker-purple;
             cursor: pointer;
         }
     }
@@ -153,7 +155,60 @@ h1 {
         margin: 0;
 
         & h2 {
+            color: $darker-purple;
             margin-bottom: 1.5rem;
+        }
+
+        & div {
+            background-color: #fff;
+            border-radius: 2px;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        & p {
+            padding: 0;
+            border: 1px solid transparent;
+            margin: 0;
+            margin-left: 1.3rem;
+        }
+    }
+}
+
+#todo-board label {
+    display: inline-flex;
+    align-items: baseline;
+
+    input[type=checkbox] {
+        position: relative;
+        appearance: none;
+        font-size: inherit;
+        width: 1em;
+        margin: 0;
+        outline: none;
+        font-family: 'Font Awesome 5 Pro';
+        transition: 300ms ease-out;
+
+        &::after {
+            content: "\f111 ";
+            display: inline-block;
+            text-align: center;
+            width: 1em;
+        }
+
+        &:checked::after {
+            font-weight: 900;
+            content: "\2713 ";
+        }
+
+        &:active {
+            transform: scale(.6);
+        }
+
+        +span {
+            margin-left: 0.3rem;
+			font-weight: 600;
+			margin-bottom: 0.3rem;
         }
     }
 }
