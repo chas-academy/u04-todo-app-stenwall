@@ -96,10 +96,12 @@ function viewListsAndTodos(array $lists)
 		echo "<h2>{$list['title']}</h2>";
 
 		$todos = models\getTodosByListId($list['id']);
-		
+
 		foreach ($todos as $todo) {
+			echo "<div>";
 			echo "<p><b>{$todo['task_title']}</b></p>";
 			echo "<p>{$todo['task_desc']}</p>";
+			echo "</div>";
 		}
 
 		echo "</div>";

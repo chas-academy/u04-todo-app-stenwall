@@ -77,18 +77,18 @@ h1 {
     }
 }
 
-.grid-container#list-grid {
-    grid-template-columns: 1fr;
-    row-gap: 1.5rem;
-    grid-template-areas: "h2"
-        "."
-        ".";
-    max-width: 350px;
+// .grid-container#list-grid {
+//     grid-template-columns: 1fr;
+//     row-gap: 1.5rem;
+//     grid-template-areas: "h2"
+//         "."
+//         ".";
+//     max-width: 350px;
 
-    & button {
-        margin-top: 0;
-    }
-}
+//     & button {
+//         margin-top: 0;
+//     }
+// }
 
 .title,
 .list-title,
@@ -144,16 +144,17 @@ h1 {
 .todo-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    // max-width: 900px;
+    margin: 2rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
 
     #todo-board {
         max-width: 350px;
-        margin-right: 0;
-        margin-bottom: 0;
-    }
+        margin: 0;
 
-    & div:nth-child(3n+3) {
-        margin-right: 2rem !important;
+        & h2 {
+            margin-bottom: 1.5rem;
+        }
     }
 }
 
