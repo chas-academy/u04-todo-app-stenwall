@@ -9,6 +9,7 @@ use App\models;
 
 views\addNewList();
 views\addNewTodo();
+views\viewListsAndTodos();
 
 models\getLists();
 

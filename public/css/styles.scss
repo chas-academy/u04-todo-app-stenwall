@@ -27,7 +27,7 @@ h1 {
     column-gap: 2rem;
     row-gap: 1.5rem;
     grid-template-areas: "h2 h2"
-		". ."
+        ". ."
         ". .";
     background: lighten($primary-bg-color, 5%);
     padding: 2rem;
@@ -41,8 +41,8 @@ h1 {
         font-weight: 600;
     }
 
-	& input, 
-	select {
+    & input,
+    select {
         border: 1px solid $form-border-color;
         border-radius: 4px;
         height: 2rem;
@@ -51,8 +51,8 @@ h1 {
     }
 
     & input,
-	label, 
-	select {
+    label,
+    select {
         color: $font-color;
         width: 100%;
     }
@@ -81,8 +81,8 @@ h1 {
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     grid-template-areas: "h2"
-		"."
-		".";
+        "."
+        ".";
     max-width: 350px;
 
     & button {
@@ -139,6 +139,10 @@ h1 {
         background: $primary-bg-color;
         border: 1px solid $form-border-color;
     }
+}
+
+#todo-board {
+    max-width: 350px;
 }
 
 .message-container {

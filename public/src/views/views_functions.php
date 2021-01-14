@@ -86,7 +86,11 @@ function showAvailableLists(array $lists)
 	}
 }
 
-
+function viewListsAndTodos()
+{
+	echo "<div class='message-container' id='todo-board'>";
+	echo "</div>";
+}
 	
 
 
