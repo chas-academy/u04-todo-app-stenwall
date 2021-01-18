@@ -138,7 +138,7 @@ function editList(string $listTitle, string $listId, array $todos)
 			$completed = $todo['completed'];
 
 			echo "<h3>Edit todo <span>$todoTitle</span></h3>";
-			echo "<a href='tododeleted.php?todoid={$todoId}&todotitle={$todoTitle}' class='button todo-btn'>Delete todo</a>";
+			echo "<a href='tododeleted.php?todoid={$todoId}&todotitle={$todoTitle}&listtitle={$listTitle}' class='button todo-btn'>Delete todo</a>";
 
 			echo "<div class='title'>
 					<label for='todo-title'>Title</label>
@@ -180,6 +180,16 @@ function showDeletedList(string $listTitle)
 
 	echo "<p><b>List:</b> {$listTitle}</p>";
 	echo "<p>...and all the todos in it.</p>";
+
+	echo "<a href='index.php' class='button'>Go back</a>";
+}
+
+function showDeletedTodo(string $todoTitle, string $listTitle)
+{
+	echo "<h2>You have deleted the following:</h2>";
+
+	echo "<p><b>Todo:</b> {$todoTitle}</p>";
+	echo "<p><b>From the list:</b> {$listTitle}</p>";
 
 	echo "<a href='index.php' class='button'>Go back</a>";
 }

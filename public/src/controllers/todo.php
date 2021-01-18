@@ -56,8 +56,9 @@ function handleDeleteTodo()
 {
 	$todoId = $_GET['todoid'];
 	$todoTitle = $_GET['todotitle'];
+	$listTitle = $_GET['listtitle'];
 
 	models\deleteTodo($todoId);
 	
-	views\showDeletedTodo($todoTitle);
+	views\showDeletedTodo($todoTitle, $listTitle);
 }
