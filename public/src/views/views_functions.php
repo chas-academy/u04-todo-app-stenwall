@@ -103,9 +103,7 @@ function viewListsAndTodos(array $lists)
 
 		foreach ($todos as $todo) {
 			echo "<section>";
-			echo "<label for='{$todo['id']}'>";
-			echo "<input id='{$todo['id']}' name='{$todo['id']}' type='checkbox' value='1' />";
-			echo "<span>{$todo['task_title']}</span></label>";
+			echo "<h3>{$todo['task_title']}</h3>";
 			echo "<p>{$todo['task_desc']}</p>";
 			echo "</section>";
 		}
