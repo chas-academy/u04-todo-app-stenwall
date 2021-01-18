@@ -15,7 +15,7 @@ function createTodo(string $listId, string $title, string $description)
 function getTodosByListId(string $listId)
 {
 	$pdo = connectDB();
-	$sql = "SELECT id, task_title, task_desc, completed FROM todos WHERE list_id = :list_id  ORDER BY created, completed";
+	$sql = "SELECT id, task_title, task_desc, completed FROM todos WHERE list_id = :list_id  ORDER BY completed, created";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(['list_id' => $listId]);
 	$todos = $stmt->fetchAll();

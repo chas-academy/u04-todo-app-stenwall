@@ -102,7 +102,11 @@ function viewListsAndTodos(array $lists)
 		$todos = models\getTodosByListId($list['id']);
 
 		foreach ($todos as $todo) {
-			echo "<section>";
+			if ($todo['completed'] == 1) {
+				echo "<section class='todo-done'>";
+			} else {
+				echo "<section>";
+			}
 			echo "<h3>{$todo['task_title']}</h3>";
 			echo "<p>{$todo['task_desc']}</p>";
 			echo "</section>";
