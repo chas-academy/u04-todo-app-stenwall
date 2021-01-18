@@ -8,7 +8,7 @@ use App\models;
 
 function handleCreateTodo() {
 		
-	$errors = checkForm();
+	$errors = checkTodoForm();
 	if (!empty($errors)) {
 		views\oops($errors);
 	} else {
@@ -20,7 +20,7 @@ function handleCreateTodo() {
 	}
 }
 
-function checkForm()
+function checkTodoForm()
 {
 	$errorMessages = [];
 	if (empty($_POST["list-id"])) {
@@ -33,4 +33,21 @@ function checkForm()
 		$errorMessages[] = "The todo have to have a description";
 	}
 	return $errorMessages;
+}
+
+function handleUpdateTodo()
+{
+	$listId = $_POST['list-id'];
+	$todos = models\getTodosByListId($listId);
+
+	foreach ($todos as $todo) {
+		$todoId = $todo['id'];
+
+		$todoTitle = $_POST['task_title' . $todoId];
+		$todoDesc = $_POST['task_desc' . $todoId];
+		$completed = $_POST['completed' . $todoId];
+
+		models\updateTodo($todoTitle, $todoDesc, $completed, $todoId);
+	}
+	
 }
