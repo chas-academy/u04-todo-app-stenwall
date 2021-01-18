@@ -20,5 +20,23 @@ function getTodosByListId(string $listId)
 	$stmt->execute(['list_id' => $listId]);
 	$todos = $stmt->fetchAll();
 	return $todos;
-// 	var_dump($todos);
+}
+
+// Update
+function updateTodo(string $todoTitle, string $todoDesc, string $completed, string $todoId)
+{
+	$pdo = connectDB();
+	$sql = "UPDATE todos SET task_title = :task_title, task_desc = :task_desc, completed = :completed WHERE id = :id";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute(['task_title' => $todoTitle, 'task_desc' => $todoDesc, 'completed' => $completed, 'id' => $todoId]);
+}
+
+// Delete
+// See also: the function 'deleteListAndTodos()' in 'models/todolist.php'
+function deleteTodo(string $todoId)
+{
+	$pdo = connectDB();
+	$sql = "DELETE FROM todos WHERE id = :id";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute(['id' => $todoId]);
 }
