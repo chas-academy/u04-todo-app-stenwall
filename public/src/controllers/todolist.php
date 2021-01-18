@@ -47,6 +47,8 @@ function handleUpdateList() {
 	$listTitle = $_POST['list-title'];
 
 	models\updateList($listTitle, $listId);
+
+	views\showUpdatedListAndTodos($listTitle);
 }
 
 function handleDeleteList()

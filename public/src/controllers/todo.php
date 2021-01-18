@@ -39,6 +39,7 @@ function handleUpdateTodo()
 {
 	$listId = $_POST['list-id'];
 	$todos = models\getTodosByListId($listId);
+	$updatedTodos = [];
 
 	foreach ($todos as $todo) {
 		$todoId = $todo['id'];
@@ -48,8 +49,14 @@ function handleUpdateTodo()
 		$completed = $_POST['completed' . $todoId];
 
 		models\updateTodo($todoTitle, $todoDesc, $completed, $todoId);
+
+		$updatedTodos[] = [
+			'task_title' => $todoTitle,
+			'task_desc' => $todoDesc,
+			'completed' => $completed
+		];
 	}
-	
+
 }
 
 function handleDeleteTodo()

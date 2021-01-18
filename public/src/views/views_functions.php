@@ -195,6 +195,16 @@ function showDeletedTodo(string $todoTitle, string $listTitle)
 
 	echo "<a href='index.php' class='button'>Go back</a>";
 }
+
+function showUpdatedListAndTodos(string $listTitle)
+{
+	echo "<h2>You have updated the following:</h2>";
+
+	echo "<p><b>List:</b> {$listTitle}</p>";
+	echo "<p>...and maybe some todos in it.</p>";
+
+	echo "<a href='index.php' class='button'>Go back</a>";
+}
 	
 
 
