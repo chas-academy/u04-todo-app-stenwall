@@ -13,7 +13,9 @@ function handleCreateList() {
 		views\oops($errors);
 	} else {
 		$listTitle = $_POST['list-title'];
+
 		models\createList($listTitle);
+
 		views\showListCreated($listTitle);
 	}
 }
@@ -21,9 +23,11 @@ function handleCreateList() {
 function checkListForm()
 {
 	$errorMessages = [];
+
 	if (empty(trim($_POST["list-title"]))) {
 		$errorMessages[] = "The list have to have a title";
 	}
+
 	return $errorMessages;
 }
 
@@ -43,5 +47,15 @@ function handleUpdateList() {
 	$listTitle = $_POST['list-title'];
 
 	models\updateList($listTitle, $listId);
+}
+
+function handleDeleteList()
+{
+	$listId = $_GET['listid'];
+	$listTitle = $_GET['listtitle'];
+
+	models\deleteListAndTodos($listId);
+	
+	views\showDeletedList($listTitle);
 }
 
