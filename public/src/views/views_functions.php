@@ -11,7 +11,7 @@ function addNewList()
 	<!-- Form for adding list -->
 	<form action="addlist.php" method="POST" id="list-form">
 		<div class="grid-container" id="list-grid">
-			<h2>Add new list</h2>
+			<h2 class="full-width">Add new list</h2>
 			<div class="list-title">
 				<label for=" list-title">Title</label>
 				<input type="text" id="list-title" name="list-title">
@@ -27,7 +27,7 @@ function addNewTodo()
 	<!-- Form for adding todo -->
 	<form action="addtodo.php" method="POST" id="todo-form">
 		<div class="grid-container">
-			<h2>Add new todo</h2>
+			<h2 class="full-width">Add new todo</h2>
 			<div class="list">
 				<label for="list-id">Choose a list</label>
 				<select id="list-id" name="list-id" form="todo-form">
@@ -87,29 +87,89 @@ function showAvailableLists(array $lists)
 	}
 }
 
+// function for viewing boards with lists and todos in index
 function viewListsAndTodos(array $lists)
 {
 	echo "<div class='todo-grid-container'>";
 
 	foreach ($lists as $list) {
-		echo "<div class='message-container' id='todo-board'>";
+		echo "<section class='message-container' id='todo-board'>";
+		echo "<div class='list-header'>";
 		echo "<h2>{$list['title']}</h2>";
+		echo "<a href='editlist.php?listid={$list['id']}&listtitle={$list['title']}' class='button'>Edit</a>";
+		echo "</div>";
 
 		$todos = models\getTodosByListId($list['id']);
 
 		foreach ($todos as $todo) {
-			echo "<div>";
+			echo "<section>";
 			echo "<label for='{$todo['id']}'>";
 			echo "<input id='{$todo['id']}' name='{$todo['id']}' type='checkbox' value='1' />";
 			echo "<span>{$todo['task_title']}</span></label>";
 			echo "<p>{$todo['task_desc']}</p>";
-			echo "</div>";
+			echo "</section>";
 		}
 
-		echo "</div>";
+		echo "</section>";
 	}
 
 	echo "</div>";
+}
+
+// function for updating/editing list and todo data
+function editList(string $listTitle, string $listId, array $todos)
+{
+	echo "<form action='listedited.php' method='POST' id='edit-form'>
+		<div class='grid-container' id='edit-grid'>
+			<h2>Edit list '$listTitle'</h2>";
+
+	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button'>Delete list</a>";
+
+	echo "<div class='list-title full-width'>
+			<label for='list-title'>List-title</label>
+			<input type='text' id='list-title' name='list-title' value='$listTitle'>
+			<input id='list-id' name='list-id' type='hidden' value='$listId'>
+		</div>";
+
+		foreach ($todos as $todo) {
+			$todoTitle = $todo['task_title'];
+			$todoDesc = $todo['task_desc'];
+			$todoId = $todo['id'];
+			$completed = $todo['completed'];
+
+			echo "<h3 class='full-width'>Edit todo '$todoTitle'</h3>";
+			echo "<div class='title'>
+					<label for='todo-title'>Title</label>
+					<input type='text' id='todo-title' name='task_title{$todoId}' value='{$todoTitle}'>
+				</div>";
+			echo "<div class='completed'>
+					<p>Completed</p>
+					<div class='radio-container'>";
+
+				if ($completed == '1') {
+					echo "<input type='radio' id='yes{$todoId}' value='1' name='completed{$todoId}' checked>
+						<label for='yes{$todoId}'>Yes</label>
+						<input type='radio' id='no{$todoId}' value='0' name='completed{$todoId}'>
+						<label for='no{$todoId}'>No</label>";
+				} else {
+					echo "<input type='radio' id='yes{$todoId}' value='1' name='completed{$todoId}'>
+						<label for='yes{$todoId}'>Yes</label>
+						<input type='radio' id='no{$todoId}' value='0' name='completed{$todoId}' checked>
+						<label for='no{$todoId}'>No</label>";
+				}
+						
+			echo "</div>
+				</div>";
+
+			echo "<div class='description full-width'>
+					<label for='description'>Description</label>
+					<textarea id='description' name='task_desc{$todoId}' rows='3'>{$todoDesc}</textarea>
+				</div>";
+		}
+
+		echo "<button type='submit' id='submit'>Save changes</button>
+		</div>
+	</form>";
 }
 	
 
