@@ -7,8 +7,6 @@ function connectDB()
 	$config = Config::getInstance();
 	$dbconfig = $config->get('db');
 
-	// $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 	try {
     	$pdo = new PDO(
 			$dbconfig['dsn'],
