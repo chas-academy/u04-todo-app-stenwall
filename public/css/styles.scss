@@ -28,17 +28,37 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
-    row-gap: 1.5rem;
+    row-gap: 1rem;
     background: lighten($primary-bg-color, 5%);
     padding: 2rem;
     margin: 2rem;
     max-width: 690px;
 
+	h2,
+	h3 {
+		color: $darker-purple;
+
+		& span {
+			color: $darker-primary;
+		}
+	}
+
     h2 {
-        color: $darker-purple;
         font-size: 2rem;
-        font-weight: 600;
-    }
+		font-weight: 600;
+	}
+	
+	h3 {
+		margin-top: 3.3rem;
+	}
+
+	.todo-btn {
+		margin-top: 3rem;
+	}
+
+	.list-btn {
+		margin-top: 0.3rem;
+	}
 
 	.full-width {
 		grid-column-start: 1;

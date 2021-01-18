@@ -121,9 +121,9 @@ function editList(string $listTitle, string $listId, array $todos)
 {
 	echo "<form action='listedited.php' method='POST' id='edit-form'>
 		<div class='grid-container' id='edit-grid'>
-			<h2>Edit list <i>$listTitle</i></h2>";
+			<h2>Edit list <span>$listTitle</span></h2>";
 
-	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button'>Delete list</a>";
+	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button list-btn'>Delete list</a>";
 
 	echo "<div class='list-title full-width'>
 			<label for='list-title'>List-title</label>
@@ -137,7 +137,9 @@ function editList(string $listTitle, string $listId, array $todos)
 			$todoId = $todo['id'];
 			$completed = $todo['completed'];
 
-			echo "<h3 class='full-width'>Edit todo <i>$todoTitle</i></h3>";
+			echo "<h3>Edit todo <span>$todoTitle</span></h3>";
+			echo "<a href='tododeleted.php?todoid={$todoId}&todotitle={$todoTitle}' class='button todo-btn'>Delete todo</a>";
+
 			echo "<div class='title'>
 					<label for='todo-title'>Title</label>
 					<input type='text' id='todo-title' name='task_title{$todoId}' value='{$todoTitle}'>
