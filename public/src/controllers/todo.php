@@ -51,3 +51,13 @@ function handleUpdateTodo()
 	}
 	
 }
+
+function handleDeleteTodo()
+{
+	$todoId = $_GET['todoid'];
+	$todoTitle = $_GET['todotitle'];
+
+	models\deleteTodo($todoId);
+	
+	views\showDeletedTodo($todoTitle);
+}
