@@ -21,16 +21,23 @@ function getLists()
 	$stmt->execute();
 	$lists = $stmt->fetchAll();
 	return $lists;
-	
-// 	$lists = $pdo->query("SELECT id, title FROM lists;")->fetchAll();
-// 	var_dump($lists);
-// 	$query = <<<SQL
-// 	SELECT id, title FROM lists;
-// SQL;
-// 	$stmt = $pdo->prepare($query);
-// 	$result = $stmt->execute();
-
-// 	var_dump($result);
 }
 
+// Update
+function updateList(string $listTitle, string $listId)
+{
+	$pdo = connectDB();
+	$sql = "UPDATE lists SET title = :title WHERE id = :id";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute(['title' => $listTitle, 'id' => $listId]);
+}
+
+// Delete
+function deleteListAndTodos(string $listId)
+{
+	$pdo = connectDB();
+	$sql = "DELETE FROM lists WHERE id = :id";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute(['id' => $listId]);
+}
 
