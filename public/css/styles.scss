@@ -2,7 +2,7 @@
 $primary-bg-color: #F7B1AB;
 $secondary-bg-color: #807182;
 $secondary-btn: #cd756d;
-$darker-primary: #cd756d;
+$darker-primary: #5c322e;
 $darker-purple: #171A2B;
 $font-color: rgba(0, 0, 0, .8);
 $font-family: 'Montserrat', sans-serif;
@@ -88,11 +88,10 @@ h1 {
 		line-height: 0.8rem;
 		font-size: 0.8rem;
         background: $secondary-btn;
-        // border: 1px solid $form-border-color;
         color: #fff;
 
         &:hover {
-            background: $darker-purple;
+            background: $darker-primary;
             cursor: pointer;
         }
 	}
@@ -259,7 +258,8 @@ h1 {
     margin: 2rem;
     max-width: 700px;
 
-    h1 {
+	h1, 
+	h2 {
         margin: 0 0 2rem 0;
     }
 
