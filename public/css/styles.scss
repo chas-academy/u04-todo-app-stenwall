@@ -3,8 +3,7 @@ $primary-bg-color: #F7B1AB;
 $secondary-bg-color: #807182;
 $darker-purple: #171A2B;
 $font-color: rgba(0, 0, 0, .8);
-$font-family: 'Montserrat',
-sans-serif;
+$font-family: 'Montserrat', sans-serif;
 $form-border-color: rgba(0, 0, 0, .1);
 
 * {
@@ -28,49 +27,81 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
     row-gap: 1.5rem;
-    grid-template-areas: "h2 h2"
-        ". ."
-        ". .";
     background: lighten($primary-bg-color, 5%);
     padding: 2rem;
     margin: 2rem;
     max-width: 690px;
 
     h2 {
-        grid-area: h2;
         color: $darker-purple;
         font-size: 2rem;
         font-weight: 600;
     }
 
+	.full-width {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+
     & input,
-    select {
+	select {
         border: 1px solid $form-border-color;
         border-radius: 4px;
         height: 2rem;
+        line-height: 2rem;
+        padding-left: 0.3rem;
+	}
+	
+	textarea {
+        border: 1px solid $form-border-color;
+        border-radius: 4px;
+        height: 4rem;
         line-height: 2rem;
         padding-left: 0.3rem;
     }
 
     & input,
     label,
-    select {
+	select,
+	textarea {
         color: $font-color;
         width: 100%;
-    }
+	}
+
+	& button,
+	.button {
+		border-radius: 19px;
+		font-family: $font-family;
+		border: 1px solid transparent;
+		transition: .2s all ease-in-out;
+        cursor: pointer;
+	}
+
+	& .button {
+		text-decoration: none;
+		text-align: center;
+        padding: 0.6rem 1.5rem;
+		height: 2rem;
+		width: 8rem;
+		line-height: 0.8rem;
+		font-size: 0.8rem;
+        background: $primary-bg-color;
+        border: 1px solid $form-border-color;
+        color: #fff;
+
+        &:hover {
+            background:$darker-purple;
+            cursor: pointer;
+        }
+	}
 
     & button {
         margin-top: 1.3rem;
         height: 2.5rem;
         line-height: 2rem;
         width: 100%;
-        border-radius: 19px;
-        font-family: $font-family;
         background: $secondary-bg-color;
-        border: 1px solid transparent;
         color: #fff;
-        transition: .2s all ease-in-out;
-        cursor: pointer;
 
         &:hover {
             background: $darker-purple;
@@ -79,23 +110,11 @@ h1 {
     }
 }
 
-// .grid-container#list-grid {
-//     grid-template-columns: 1fr;
-//     row-gap: 1.5rem;
-//     grid-template-areas: "h2"
-//         "."
-//         ".";
-//     max-width: 350px;
-
-//     & button {
-//         margin-top: 0;
-//     }
-// }
-
 .title,
 .list-title,
 .list,
-.description {
+.description,
+.completed {
 
     & label,
     p {
@@ -118,8 +137,9 @@ h1 {
         border: 1px solid transparent;
         border-radius: 2px;
         display: inline-block;
-        height: 26px;
-        line-height: 26px;
+        height: 20px;
+		line-height: 20px;
+		font-size: 0.8rem;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -148,7 +168,14 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     margin: 2rem;
     column-gap: 2rem;
-    row-gap: 2rem;
+	row-gap: 2rem;
+	
+	.list-header {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+	}
 
     #todo-board {
         max-width: 350px;
@@ -156,14 +183,25 @@ h1 {
 
         & h2 {
             color: $darker-purple;
-            margin-bottom: 1.5rem;
-        }
+			margin: 0 1rem 0 0;
+			padding: 0;
+		}
+		
+		& a.button {
+			margin: 0;
+			text-decoration: none;
+        	padding: 0.5rem 0;
+        	height: 2rem;
+			line-height: 1rem;
+			text-align: center;
+			width: 4rem;
+		}
 
-        & div {
+        & section {
             background-color: #fff;
             border-radius: 2px;
             padding: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         & p {
@@ -175,43 +213,43 @@ h1 {
     }
 }
 
-#todo-board label {
-    display: inline-flex;
-    align-items: baseline;
+// #todo-board label {
+//     display: inline-flex;
+//     align-items: baseline;
 
-    input[type=checkbox] {
-        position: relative;
-        appearance: none;
-        font-size: inherit;
-        width: 1em;
-        margin: 0;
-        outline: none;
-        font-family: 'Font Awesome 5 Pro';
-        transition: 300ms ease-out;
+//     input[type=checkbox] {
+//         position: relative;
+//         appearance: none;
+//         font-size: inherit;
+//         width: 1em;
+//         margin: 0;
+//         outline: none;
+//         font-family: 'Font Awesome 5 Pro';
+//         transition: 300ms ease-out;
 
-        &::after {
-            content: "\f111 ";
-            display: inline-block;
-            text-align: center;
-            width: 1em;
-        }
+//         &::after {
+//             content: "\f111 ";
+//             display: inline-block;
+//             text-align: center;
+//             width: 1em;
+//         }
 
-        &:checked::after {
-            font-weight: 900;
-            content: "\2713 ";
-        }
+//         &:checked::after {
+//             font-weight: 900;
+//             content: "\2713 ";
+//         }
 
-        &:active {
-            transform: scale(.6);
-        }
+//         &:active {
+//             transform: scale(.6);
+//         }
 
-        +span {
-            margin-left: 0.3rem;
-			font-weight: 600;
-			margin-bottom: 0.3rem;
-        }
-    }
-}
+//         +span {
+//             margin-left: 0.3rem;
+// 			font-weight: 600;
+// 			margin-bottom: 0.3rem;
+//         }
+//     }
+// }
 
 .message-container {
     background: lighten($primary-bg-color, 5%);
@@ -237,7 +275,7 @@ h1 {
         cursor: pointer;
 
         &:hover {
-            background: #171A2B;
+            background: $darker-purple;
             cursor: pointer;
         }
     }
