@@ -121,7 +121,7 @@ function editList(string $listTitle, string $listId, array $todos)
 {
 	echo "<form action='listedited.php' method='POST' id='edit-form'>
 		<div class='grid-container' id='edit-grid'>
-			<h2>Edit list '$listTitle'</h2>";
+			<h2>Edit list <i>$listTitle</i></h2>";
 
 	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button'>Delete list</a>";
 
@@ -137,7 +137,7 @@ function editList(string $listTitle, string $listId, array $todos)
 			$todoId = $todo['id'];
 			$completed = $todo['completed'];
 
-			echo "<h3 class='full-width'>Edit todo '$todoTitle'</h3>";
+			echo "<h3 class='full-width'>Edit todo <i>$todoTitle</i></h3>";
 			echo "<div class='title'>
 					<label for='todo-title'>Title</label>
 					<input type='text' id='todo-title' name='task_title{$todoId}' value='{$todoTitle}'>
@@ -170,6 +170,16 @@ function editList(string $listTitle, string $listId, array $todos)
 		echo "<button type='submit' id='submit'>Save changes</button>
 		</div>
 	</form>";
+}
+
+function showDeletedList(string $listTitle)
+{
+	echo "<h2>You have deleted the following:</h2>";
+
+	echo "<p><b>List:</b> {$listTitle}</p>";
+	echo "<p>...and all the todos in it.</p>";
+
+	echo "<a href='index.php' class='button'>Go back</a>";
 }
 	
 
