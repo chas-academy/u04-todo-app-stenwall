@@ -64,3 +64,9 @@ För att nå Godkänd som betyg på denna inlämning ska du:
 För att nå Väl godkänd som betyg på denna inlämning ska du:
 - [ ] utför alla färdigheter som uppgiften har som mål med mycket gott handlag
 - [ ] Mycket gott handlag omfattar godkänd nivå men inlämning innehåller även utförlig och enhetlig dokumentation för hela kodbasen (i både kod och separat dokumentation), samt väldesignad struktur för kod och databas.
+
+## Min lösning
+
+Jag började att göra ER-diagram och schema för databaserna, får att få lite bättre överblick över vad jag skulle göra.
+
+
