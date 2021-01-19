@@ -57,10 +57,10 @@ Den här inlämningen ger underlag för följande kursmål.
 
 #### Godkänd
 För att nå Godkänd som betyg på denna inlämning ska du:
-[x] utför alla färdigheter som uppgiften har som mål med gott handlag
-[x] Med gott handlag syftas det till att inlämnad kod ska enhetligt följa standard (förslagsvis PSR-2)
+- [x] utför alla färdigheter som uppgiften har som mål med gott handlag
+- [x] Med gott handlag syftas det till att inlämnad kod ska enhetligt följa standard (förslagsvis PSR-2)
 
 #### Väl godkänd
 För att nå Väl godkänd som betyg på denna inlämning ska du:
-[ ] utför alla färdigheter som uppgiften har som mål med mycket gott handlag
-[ ] Mycket gott handlag omfattar godkänd nivå men inlämning innehåller även utförlig och enhetlig dokumentation för hela kodbasen (i både kod och separat dokumentation), samt väldesignad struktur för kod och databas.
+- [ ] utför alla färdigheter som uppgiften har som mål med mycket gott handlag
+- [ ] Mycket gott handlag omfattar godkänd nivå men inlämning innehåller även utförlig och enhetlig dokumentation för hela kodbasen (i både kod och separat dokumentation), samt väldesignad struktur för kod och databas.
