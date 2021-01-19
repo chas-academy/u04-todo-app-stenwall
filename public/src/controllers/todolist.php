@@ -1,63 +1,64 @@
 <?php
 declare(strict_types=1);
+
 namespace App\controllers;
-include_once (__DIR__ . '/../models/todolist.php');
-include_once (__DIR__ . '/../views/views_functions.php');
+
 use App\views;
 use App\models;
 
-function handleCreateList() {
-		
-	$errors = checkListForm();
-	if (!empty($errors)) {
-		views\oops($errors);
-	} else {
-		$listTitle = $_POST['list-title'];
+include_once (__DIR__ . '/../models/todolist.php');
+include_once (__DIR__ . '/../views/views_functions.php');
 
-		models\createList($listTitle);
+function handleCreateList()
+{
+    $errors = checkListForm();
+    if (!empty($errors)) {
+        views\oops($errors);
+    } else {
+        $listTitle = $_POST['list-title'];
 
-		views\showListCreated($listTitle);
-	}
+        models\createList($listTitle);
+
+        views\showListCreated($listTitle);
+    }
 }
 
 function checkListForm()
 {
-	$errorMessages = [];
-
-	if (empty(trim($_POST["list-title"]))) {
-		$errorMessages[] = "The list have to have a title";
-	}
-
-	return $errorMessages;
+    $errorMessages = []; 
+    if (empty(trim($_POST["list-title"]))) {
+        $errorMessages[] = "The list have to have a title";
+    }
+    return $errorMessages;
 }
 
-function handleEditList() {
-	
-	$listId = $_GET['listid'];
-	$listTitle = $_GET['listtitle'];
+function handleEditList()
+{
+    $listId = $_GET['listid'];
+    $listTitle = $_GET['listtitle'];
+    $todos = models\getTodosByListId($listId);
 
-	$todos = models\getTodosByListId($listId);
-
-	views\editList($listTitle, $listId,$todos);
+    views\editList($listTitle, $listId,$todos);
 }
 
-function handleUpdateList() {
+function handleUpdateList()
+{
+    $listId = $_POST['list-id'];
+    $listTitle = $_POST['list-title'];
 
-	$listId = $_POST['list-id'];
-	$listTitle = $_POST['list-title'];
+    models\updateList($listTitle, $listId);
 
-	models\updateList($listTitle, $listId);
-
-	views\showUpdatedListAndTodos($listTitle);
+    views\showUpdatedListAndTodos($listTitle);
 }
 
 function handleDeleteList()
 {
-	$listId = $_GET['listid'];
-	$listTitle = $_GET['listtitle'];
+    $listId = $_GET['listid'];
+    $listTitle = $_GET['listtitle'];
 
-	models\deleteListAndTodos($listId);
-	
-	views\showDeletedList($listTitle);
+    models\deleteListAndTodos($listId);
+    
+    views\showDeletedList($listTitle);
 }
 
+?>
