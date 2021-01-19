@@ -7,9 +7,9 @@ require_once (__DIR__ . ' /../../db.php');
 function createList(string $title)
 {
 	$pdo = connectDB();
-	$sql = "INSERT INTO lists (user_id, title) VALUES (:user_id, :title)";
+	$sql = "INSERT INTO lists (title) VALUES (:title)";
 	$stmt = $pdo->prepare($sql);
-	$stmt->execute(['user_id' => 1, 'title' => $title]);
+	$stmt->execute(['title' => $title]);
 }
 
 // Read
