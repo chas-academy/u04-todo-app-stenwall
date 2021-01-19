@@ -53,7 +53,7 @@ function addNewTodo()
 // function for showing error messages
 function oops(array $errormessages)
 {
-	echo "<h1>Oops, something went wrong!</h1>";
+	echo "<h2 class='full-width'>Oops, something went wrong!</h1>";
 		foreach ($errormessages as $message) {
 			echo "<p>{$message}</p>";
 		}
@@ -63,7 +63,7 @@ function oops(array $errormessages)
 // function for view after succesfully adding a new list
 function showListCreated(string $title)
 {
-	echo "<h1>Congrats!</h1>";
+	echo "<h2 class='full-width'>Congrats!</h2>";
 	echo "<p>You've just created the list <b>{$title}</b></p>";
 	echo "<a href='index.php' class='button'>Go back</a>";
 }
@@ -71,7 +71,7 @@ function showListCreated(string $title)
 // function for view after succesfully adding a new todo
 function showTodoCreated(string $listId, string $title, string $description)
 {
-	echo "<h1>Congrats!</h1>
+	echo "<h2 class='full-width'>Congrats!</h2>
 		<p>You've just created the following todo:</p>
 		<p><b>List:</b> {$listId}</p>
 		<p><b>Title:</b> {$title}</p>
@@ -122,10 +122,10 @@ function viewListsAndTodos(array $lists)
 function editList(string $listTitle, string $listId, array $todos)
 {
 	echo "<form action='listedited.php' method='POST' id='edit-form'>
-		<div class='grid-container' id='edit-grid'>
+		<div class='grid-container'>
 			<h2>Edit list <span>$listTitle</span></h2>";
 
-	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button list-btn'>Delete list</a>";
+	echo "<a href='listdeleted.php?listid=$listId&listtitle=$listTitle' class='button'>Delete list</a>";
 
 	echo "<div class='list-title full-width'>
 			<label for='list-title'>List-title</label>
