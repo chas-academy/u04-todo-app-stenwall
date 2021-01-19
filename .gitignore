@@ -1,6 +1,5 @@
 .DS_STORE
 .vagrant
 /.vscode
-/public/src/config*
 /public/oldies*
 /public/css/checkbox.min.css
